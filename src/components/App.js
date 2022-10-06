@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../styles/App.css";
-
 const characters = [
   {
     id: 1,
@@ -129,11 +128,12 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   const changeChar = () => {
+    setScore(score-1);
     
   };
 
   const scoreHandler = (e) => {
-   
+    setScore(score+1);
   };
 
   useEffect(() => {
@@ -149,6 +149,10 @@ const App = () => {
           <h4>Role: {currChar.role}</h4>
           {currChar.abilities.join()}
           <div className="options">
+          <button onClick={changeChar}>Sova</button>
+          <button onClick={changeChar}>Breach</button>
+          <button onClick={changeChar}>Raze</button>
+          <button onClick={changeChar}>Viper</button>
             {currChar.options.map((option) => (
               <button   onClick={scoreHandler}>
                 {option.name}
